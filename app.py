@@ -2,13 +2,19 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from datetime import datetime
+import os
 from sqlalchemy import text
 import json
 from werkzeug.exceptions import NotFound
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+print(f"Database URI : {app.config.get('SQLALCHEMY_DATABASE_URI')}")
+
 db = SQLAlchemy(app)
 
 # --- Models ---
@@ -212,7 +218,6 @@ def get_expenses():
     except Exception as e:
         return internal_server_error(e)
 
-
 @app.route('/groups/<int:group_id>/balances', methods=['GET'])
 def get_group_balances(group_id):
     try:
@@ -249,11 +254,11 @@ def get_group_balances(group_id):
          return internal_server_error(e)
 # --- End Routes ---
 
-
 if __name__ == '__main__':
     with app.app_context():
         print("Attempting to create database tables...")
         db.create_all()
         print("Database tables created (or already existed).")
 
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use PORT from env or default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True) # add host and port binding here

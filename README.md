@@ -1,11 +1,15 @@
 # Splitwise Backend API
 
-A REST API for a simplified Splitwise application.
+Simplified REST API for splitwise applications
+
+## Live Deployment Link
+
+- API Demo - https://splitwise-backend-2.onrender.com/
 
 ## Features
 
 - Create users.
-- Create groups and add users to them.
+- Allows to Create groups and add users to them.
 - Add expenses to a group with equal or percentage-based splitting.
 - View outstanding balances for users in a group.
 
@@ -155,7 +159,6 @@ A REST API for a simplified Splitwise application.
 
 
 
-Use code with caution.Markdown
 Get a Specific Group
 
  Method: GET
@@ -182,8 +185,6 @@ Get a Specific Group
 
 
 
-Use code with caution.Json
-
 Response (Error - 404 Not Found):
 
 
@@ -194,7 +195,6 @@ Response (Error - 404 Not Found):
 
 
 
- Use code with caution.Json
 
 Expenses
 Add an Expense
@@ -217,8 +217,6 @@ Add an Expense
 
 
 
-Use code with caution.Json
-
 Request Body (Percentage Split):
 
 
@@ -236,7 +234,6 @@ Request Body (Percentage Split):
 
 
 
-Use code with caution.Json
 
 Response (Success - 201 Created):
 
@@ -257,7 +254,6 @@ Response (Success - 201 Created):
 
 
 
-Use code with caution.Json
 
  Response (Success - 201 Created)(Percentage split):
  ```json
@@ -281,8 +277,7 @@ Use code with caution.Json
 
 
 
-
- Use code with caution.
+c
 
  Response (Error - 400 Bad Request):
 
@@ -297,8 +292,6 @@ Use code with caution.Json
 Use code with caution.
 
     Response (Error - 404 Not Found):
-
-
 
 {
 "message": "Resource not found",

@@ -8,6 +8,7 @@ import json
 from werkzeug.exceptions import NotFound
 from dotenv import load_dotenv
 
+# I Never Commit the ENV file, only for this representation.
 load_dotenv()
 
 app = Flask(__name__)

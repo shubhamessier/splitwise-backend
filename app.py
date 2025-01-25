@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
-
+# --- Models ---
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
@@ -97,12 +97,6 @@ def bad_request_error(error):
 def internal_server_error(error):
     return jsonify({'message': 'Internal server error', 'error': str(error)}), 500
 # --- End Error Handlers ---
-
-
-@app.route('/')
-def home():
-    return "Hello, World!"
-
 
 # --- Routes ---
 @app.route('/users', methods=['POST'])

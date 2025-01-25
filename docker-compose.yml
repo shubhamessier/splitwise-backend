@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: on-failure
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: shubham
+      POSTGRES_PASSWORD: R8V6EOLH9X2pdrjJvs6Zb4VxBJTX0jy5
+      POSTGRES_DB: splitwisedb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: on-failure
+
+volumes:
+  db_data:
